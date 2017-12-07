@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  schedule: one
+  user: one
+  user_notes: MyText
+  attended: false
+
+two:
+  schedule: two
+  user: two
+  user_notes: MyText
+  attended: false
