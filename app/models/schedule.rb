@@ -1,3 +1,3 @@
 class Schedule < ApplicationRecord
-  belongs_to :gym
+  validates :title, presence: true
 end

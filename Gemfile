@@ -40,6 +40,9 @@ gem 'simple_form'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem 'bootstrap-daterangepicker-rails'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

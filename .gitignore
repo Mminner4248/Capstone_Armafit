@@ -23,7 +23,6 @@ config/*_local.yml
 config/redis.*.conf
 config/aws.yml
 config/application.yml
-config/database.yml
 .powenv
 .powrc
 /public/system/photos

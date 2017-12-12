@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CapstoneArmafit</title>
+    <title>Armafit</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,18 +9,8 @@
   </head>
 
   <body>
-  <div id="container">
-    <div id="user_header">
-      <% if current_user %>
-        Logged in as <%= current_user.first_name %>.
-        <%= link_to "Log Out", session_path("current"), method: "delete" %>
-        <% else %>
-        <%= link_to "Sign Up", new_user_path %>
-        <%= link_to "Log In", new_session_path %>
-        <% end %>
-    
-  
-
+    <%= render :partial => 'partials/navbar' %>
     <%= yield %>
+    <div id='remote_container'></div>
   </body>
 </html>
