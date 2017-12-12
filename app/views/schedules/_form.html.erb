@@ -1,4 +1,4 @@
-<%= simple_form_for @schedule, remote: true do |form| %>
+<%= simple_form_for @schedule, remote: false do |form| %>
   <% if schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
@@ -42,6 +42,6 @@
                 method: :delete, 
                 class: 'btn btn-danger', 
                 data: { confirm: 'Are you sure?' }, 
-                remote: true unless @schedule.new_record? %>
+                remote: false unless @schedule.new_record? %>
   </div>
 <% end %>

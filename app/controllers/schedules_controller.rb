@@ -33,6 +33,7 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1.json
   def update
    @schedule.update(schedule_params)
+   redirect_to root_url
   end
 
   # DELETE /schedules/1

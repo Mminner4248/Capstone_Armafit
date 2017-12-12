@@ -15,7 +15,6 @@
 //= require popper
 //= require bootstrap
 //= require turbolinks
-//= require rails-ujs
 //= require moment
 //= require daterangepicker
 //= require_tree .
