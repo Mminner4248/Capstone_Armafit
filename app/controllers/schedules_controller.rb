@@ -7,14 +7,14 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.all
   end
 
-  # GET /schedules/1
-  # GET /schedules/1.json
+  
   def show
   end
 
   # GET /schedules/new
   def new
     @schedule = Schedule.new
+    @start_time = DateTime.parse(params[:date])
   end
 
   # GET /schedules/1/edit
@@ -25,40 +25,21 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
-
-    respond_to do |format|
-      if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
-        format.json { render :show, status: :created, location: @schedule }
-      else
-        format.html { render :new }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
-      end
-    end
+    @schedule.save
+    redirect_to root_url
   end
 
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
-    respond_to do |format|
-      if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
-        format.json { render :show, status: :ok, location: @schedule }
-      else
-        format.html { render :edit }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
-      end
-    end
+   @schedule.update(schedule_params)
   end
 
   # DELETE /schedules/1
   # DELETE /schedules/1.json
   def destroy
     @schedule.destroy
-    respond_to do |format|
-      format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
   end
 
   private

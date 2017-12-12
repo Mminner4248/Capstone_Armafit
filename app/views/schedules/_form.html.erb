@@ -1,4 +1,4 @@
-<%= form_with(model: schedule, local: true) do |form| %>
+<%= simple_form_for @schedule, remote: true do |form| %>
   <% if schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :gym_id %>
-    <%= form.text_field :gym_id, id: :schedule_gym_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :schedule_title %>
   </div>
@@ -28,20 +23,25 @@
 
   <div class="field">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, id: :schedule_start_time %>
+    <%= form.datetime_select :start_time, id: :schedule_start_time, :default => @start_time %>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.datetime_select :end_time, id: :schedule_end_time %>
+    <%= form.datetime_select :end_time, id: :schedule_end_time%>
   </div>
 
   <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color, id: :schedule_color %>
+    <%= form.input :color, as: :select, collection: [['Green','green'], ['Yellow','yellow'], ['Red','red']] %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.button :submit, :disable_with => 'Saving...' %>
+    <%= link_to 'Delete', 
+                schedule, 
+                method: :delete, 
+                class: 'btn btn-danger', 
+                data: { confirm: 'Are you sure?' }, 
+                remote: true unless @schedule.new_record? %>
   </div>
 <% end %>
