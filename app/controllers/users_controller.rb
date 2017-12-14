@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-def new 
-   @user = User.new
-end
+  def new 
+    @user = User.new
+  end
+
+  def index
+    @users = User.all
+  end
 
   # GET /users/1
   # GET /users/1.json
@@ -20,6 +24,11 @@ end
     @user = User.new(user_params)
     if @user.save
         session[:user_id] = @user.id
+        if params[:images]
+          params[:images].each { |image|
+          @user.photos.create(image: image)
+        }
+        end
         redirect_to root_url, notice: 'Thank you for signing up!'
     else
         render :new
@@ -57,9 +66,12 @@ end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    private
+
+    def image_params
+      params.require(:user).permit(:image_file)
+    end
 
     def user_params
-      params.require(:user).permit(:password, :gym_id, :image_id, :coach_auth, :first_name, :last_name, :email, :phone, :address, :city, :state, :country, :zip, :gender)
+      params.require(:user).permit(:password, :password_confirmation, :image_id, :coach_auth, :first_name, :last_name, :email, :phone, :address, :city, :state, :country, :zip, :gender, :gym_name)
     end
 end

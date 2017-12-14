@@ -1,15 +1,13 @@
-<%if current_user.coach_auth == true %>
-<div class="modal fade" id="new_schedule">
+<div class="modal fade" id="edit_user_schedule">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Create New Event</h4>
+        <h4 class="modal-title">Sign Up For This Class</h4>
       </div>
       <div class="modal-body">
-        <%= render 'form', schedule: @schedule %>
+        <%= render 'user_schedules/form', user_schedule: @user_schedule %>
       </div>
     </div>
   </div>
 </div>
-<%end%>

@@ -1,5 +1,5 @@
 json.array!(@schedules) do |schedule|
-    json.extract! schedule, :id, :title, :description, :color
+    json.extract! schedule, :id, :gym_id, :title, :description, :color
     json.start schedule.start_time
     json.end schedule.end_time
 

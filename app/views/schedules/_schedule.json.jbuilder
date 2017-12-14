@@ -1,5 +1,6 @@
 
 json.id schedule.id
+json.gym_id schedule.gym_id
 json.title schedule.title
 json.description schedule.description
 json.start schedule.start_time

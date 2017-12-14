@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207160426) do
+ActiveRecord::Schema.define(version: 20171212113400) do
 
   create_table "gyms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "gym_name"
@@ -18,10 +18,17 @@ ActiveRecord::Schema.define(version: 20171207160426) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
   end
 
   create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -73,5 +80,5 @@ ActiveRecord::Schema.define(version: 20171207160426) do
   add_foreign_key "user_schedules", "schedules"
   add_foreign_key "user_schedules", "users"
   add_foreign_key "users", "gyms"
-  add_foreign_key "users", "images"
+  add_foreign_key "users", "photos", column: "image_id"
 end
