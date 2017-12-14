@@ -4,7 +4,8 @@ class GymsController < ApplicationController
   # GET /gyms
   # GET /gyms.json
   def index
-    @gyms = Gym.all
+    @gyms = Gym.order(:gym_name).where("name like ?", "%#{params[:term]}%")
+    render json: @gyms.map(&:gym_name)
   end
 
   # GET /gyms/1
@@ -24,7 +25,10 @@ class GymsController < ApplicationController
   # POST /gyms
   # POST /gyms.json
   def create
-    @gym = Gym.new(gym_params)
+    puts gym_params
+    puts params
+    @gym = Gym.find_or_create_by(gym_params)
+    current_user.update_attribute(:gym_id, @gym.id)
 
     respond_to do |format|
       if @gym.save

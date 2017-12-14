@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.where(gym_id: current_user.gym_id)
   end
 
   
@@ -25,7 +25,9 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
-    @schedule.save
+    if @schedule.save
+      @schedule.update_attribute(:gym_id, current_user.gym_id)
+    end
     redirect_to root_url
   end
 
