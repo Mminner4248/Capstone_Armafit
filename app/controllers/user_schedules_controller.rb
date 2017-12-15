@@ -10,11 +10,14 @@ class UserSchedulesController < ApplicationController
   # GET /user_schedules/1
   # GET /user_schedules/1.json
   def show
-  end
+  end 
 
   # GET /user_schedules/new
   def new
     @user_schedule = UserSchedule.new
+    @schedule = Schedule.find(params[:schedule])
+    @user = current_user.id
+
   end
 
   # GET /user_schedules/1/edit
@@ -25,16 +28,6 @@ class UserSchedulesController < ApplicationController
   # POST /user_schedules.json
   def create
     @user_schedule = UserSchedule.new(user_schedule_params)
-
-    respond_to do |format|
-      if @user_schedule.save
-        format.html { redirect_to @user_schedule, notice: 'User schedule was successfully created.' }
-        format.json { render :show, status: :created, location: @user_schedule }
-      else
-        format.html { render :new }
-        format.json { render json: @user_schedule.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /user_schedules/1

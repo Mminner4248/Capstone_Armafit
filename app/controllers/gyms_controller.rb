@@ -29,16 +29,6 @@ class GymsController < ApplicationController
     puts params
     @gym = Gym.find_or_create_by(gym_params)
     current_user.update_attribute(:gym_id, @gym.id)
-
-    respond_to do |format|
-      if @gym.save
-        format.html { redirect_to @gym, notice: 'Gym was successfully created.' }
-        format.json { render :show, status: :created, location: @gym }
-      else
-        format.html { render :new }
-        format.json { render json: @gym.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /gyms/1
