@@ -34,8 +34,15 @@ initialize_calendar = function(){
                 });
               }, 
               eventClick: function(schedule, jsEvent, view) {
-                $.getScript(schedule.edit_url, function() {
-                });
+                if (gon.current_user.coach_auth == true) {
+                    console.log("if");
+                    $.getScript(schedule.edit_url, function() {
+                    });
+                } else {
+                    console.log(schedule);
+                    $.getScript('/user_schedules/new?schedule='+schedule.id, function() {
+                    });
+                }
               }
         });
     })

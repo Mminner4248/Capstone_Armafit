@@ -42,6 +42,8 @@ gem 'momentjs-rails'
 
 gem 'bootstrap-daterangepicker-rails'
 
+gem 'gon'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

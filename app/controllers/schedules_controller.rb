@@ -22,7 +22,6 @@ class SchedulesController < ApplicationController
   end
 
   # POST /schedules
-  # POST /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
     if @schedule.save
