@@ -8,6 +8,7 @@ class User < ApplicationRecord
   belongs_to :gym
 
   has_many :user_schedules
+  has_many :schedules, :through => :user_schedules
 
   has_one :photos, :as => :imageable
   accepts_nested_attributes_for :photos

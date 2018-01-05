@@ -16,8 +16,7 @@ class UserSchedulesController < ApplicationController
   def new
     @user_schedule = UserSchedule.new
     @schedule = Schedule.find(params[:schedule])
-    @user = current_user.id
-
+    @user_list = @schedule.users 
   end
 
   # GET /user_schedules/1/edit
@@ -27,31 +26,21 @@ class UserSchedulesController < ApplicationController
   # POST /user_schedules
   # POST /user_schedules.json
   def create
-    @user_schedule = UserSchedule.new(user_schedule_params)
+    @user_schedule = UserSchedule.create(user_schedule_params)
+    redirect_to root_url
   end
 
   # PATCH/PUT /user_schedules/1
   # PATCH/PUT /user_schedules/1.json
   def update
-    respond_to do |format|
-      if @user_schedule.update(user_schedule_params)
-        format.html { redirect_to @user_schedule, notice: 'User schedule was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_schedule }
-      else
-        format.html { render :edit }
-        format.json { render json: @user_schedule.errors, status: :unprocessable_entity }
-      end
-    end
+    @user_schedule.update(user_schedule_params)
+    redirect_to root_url
   end
 
   # DELETE /user_schedules/1
   # DELETE /user_schedules/1.json
   def destroy
     @user_schedule.destroy
-    respond_to do |format|
-      format.html { redirect_to user_schedules_url, notice: 'User schedule was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

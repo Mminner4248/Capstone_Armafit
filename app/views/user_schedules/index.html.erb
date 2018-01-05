@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User id</th>
+      <th>Schedule id</th>
+      <th>User Notes</th>
+      <th>Attended</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_schedules.each do |user_schedule| %>
+      <tr>
+        <td><%= user_schedule.user_id %></td>
+        <td><%= user_schedule.schedule_id %></td>
+        <td><%= user_schedule.user_notes %></td>
+        <td><%= user_schedule.attended %></td>
+        <td><%= link_to 'Show', user_schedule %></td>
+        <td><%= link_to 'Edit', edit_user_schedule_path(user_schedule) %></td>
+        <td><%= link_to 'Destroy', user_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule', new_user_schedule_path %> 

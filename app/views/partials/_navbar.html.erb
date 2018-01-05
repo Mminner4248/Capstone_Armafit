@@ -12,16 +12,12 @@
             User Options
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#"> <%= link_to 'My Profile', edit_user_path(session[:user_id]) %> </a>
+            <a class="dropdown-item" href="#"><%= link_to 'My Profile', edit_user_path(session[:user_id]) %> </a>
             <a class="dropdown-item" href="#"><%= link_to 'WOD Tracker', root_path %></a>
             <a class="dropdown-item" href="#"><%= link_to 'Exercise Info', root_path %></a>
             <a class="dropdown-item" href="#"><%= link_to 'Sign Out', logout_path %></a>
           </div>
         </li>
-        <% else %>
-          <li class="nav-item">
-            <a class="nav-link" href="#"> <%= link_to 'Home', root_path %> </a>
-          </li>
         <% end %>
       </ul>
     </div>
