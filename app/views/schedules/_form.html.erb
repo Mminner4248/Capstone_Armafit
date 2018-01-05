@@ -10,38 +10,64 @@
       </ul>
     </div>
   <% end %>
+				<div class="main-login main-center">
+					<form class="" method="post" action="#">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">WOD Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.text_field :title, id: :schedule_title %>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :schedule_title %>
-  </div>
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">WOD Info</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.text_area :description, id: :schedule_description %>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :schedule_description %>
-  </div>
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Start Time</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+                  <%= form.datetime_select :start_time, id: :schedule_start_time, :default => @start_time %>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, id: :schedule_start_time, :default => @start_time %>
-  </div>
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">End Time</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.datetime_select :end_time, id: :schedule_end_time%>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.datetime_select :end_time, id: :schedule_end_time%>
-  </div>
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.input :color, as: :select, collection: [['Green','green'], ['Yellow','yellow'], ['Red','red']] %>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.input :color, as: :select, collection: [['Green','green'], ['Yellow','yellow'], ['Red','red']] %>
-  </div>
-
-  <div class="form-actions">
-    <%= form.button :submit, :disable_with => 'Saving...' %>
-    <%= link_to 'Delete', 
+						<div class="form-actions">
+              <%= form.button :submit, :disable_with => 'Saving...' %>
+              <%= link_to 'Delete', 
                 schedule, 
                 method: :delete, 
                 class: 'btn btn-danger', 
                 data: { confirm: 'Are you sure?' }, 
                 remote: false unless @schedule.new_record? %>
-  </div>
+            </div>
+						
+					</form>
+				</div>
+
 <% end %>

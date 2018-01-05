@@ -1,13 +1,36 @@
-<h1>Log In</h1>
-
+<body class="userbody">
 <%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
+
+  <div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+					<form class="" method="post" action="#">
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<%= text_field_tag :email, params[:email] %>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<%= password_field_tag :password %>
+								</div>
+							</div>
+						</div>
+						<div class="actions"><%= submit_tag "Log In" %></div>
+					</form>
+				</div>
+			</div>
+		</div>
 <% end %>
+
+
+</body>

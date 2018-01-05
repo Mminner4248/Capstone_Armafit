@@ -17,3 +17,15 @@
  */
  
  @import "bootstrap";
+
+ .navbar a {
+    color: white;
+}
+
+ .navbar:hover {
+    box-shadow: 0 0 0; 
+}
+
+.dropdown-menu a {
+    color : black;
+   }

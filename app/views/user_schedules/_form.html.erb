@@ -1,41 +1,78 @@
 <%= simple_form_for @user_schedule, remote: true do |form| %>
-  <% if user_schedule.errors.any? %>
+<%= form.hidden_field :schedule_id, :value => @schedule.id %>
+<%= form.hidden_field :user_id, :value => current_user.id %>
+  <% if @user_schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_schedule.errors.count, "error") %> prohibited this user_schedule from being saved:</h2>
 
       <ul>
-      <% user_schedule.errors.full_messages.each do |message| %>
+      <% @user_schedule.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+				<div class="main-login main-center">
+					<form class="" method="post" action="#">
+						
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.label @schedule.title %> 
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label @schedule.title %> 
-  </div>
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.label @schedule.description %>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label @schedule.description %>
-  </div>
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Currently Attending:</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+                <ul>
+                    <% @user_list.each do |user| %>
+                      <li> <%= user.first_name %> <%= user.last_name %> </li>
+                    <% end %>  
+                </ul>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label 'Personal Tracker' %>
-    <%= form.text_area :user_notes, id: :user_schedule_user_notes %>
-  </div>
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Personal Tracker</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.text_area :user_notes, id: :user_schedule_user_notes %>
+								</div>
+							</div>
+						</div>
 
-  <div class="field">
-    <%= form.label 'Attending?' %>
-    <%= form.check_box :attended, id: :user_schedule_attended %>
-  </div>
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Attending?</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<%= form.check_box :attended, id: :user_schedule_attended %>
+								</div>
+							</div>
+						</div>
 
-    <div class="form-actions">
-    <%= form.button :submit, :disable_with => 'Saving...' %>
-    <%= link_to 'Delete', 
-                schedule, 
+						 <div class="form-actions">
+                <%= form.button :submit, :disable_with => 'Saving...' %>
+                <%= link_to 'Remove from Class', 
+                @user_schedule, 
                 method: :delete, 
                 class: 'btn btn-danger', 
                 data: { confirm: 'Are you sure?' }, 
                 remote: false unless @user_schedule.new_record? %>
-  </div>
+              </div>
+						
+					</form>
+				</div>
+
 <% end %>
