@@ -1,0 +1,13 @@
+<h1>Exercise_info<h1>
+<%= form_tag(exercise_info_index_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Exercises" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% @exercise_info.each do |a| %>
+<ul>
+    <% a.each do |k, v| %>
+    <li><%= k %> : <%= v %></li>
+    <% end %>
+</ul>
+<% end %>
