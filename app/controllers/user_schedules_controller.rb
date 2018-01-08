@@ -4,8 +4,16 @@ class UserSchedulesController < ApplicationController
   # GET /user_schedules
   # GET /user_schedules.json
   def index
-    @user_schedules = UserSchedule.all
+
+    @user_schedules = 
+    if params[:term]
+      @user_schedules = UserSchedule.search(params[:term])
+    else
+      @user_schedules = UserSchedule.where(user_id: current_user.id)
+    end
+    
   end
+  
 
   # GET /user_schedules/1
   # GET /user_schedules/1.json
@@ -51,6 +59,6 @@ class UserSchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_schedule_params
-      params.require(:user_schedule).permit(:schedule_id, :user_id, :user_notes, :attended)
+      params.require(:user_schedule).permit(:schedule_id, :user_id, :user_notes, :attended, :term)
     end
 end

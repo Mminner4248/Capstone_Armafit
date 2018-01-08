@@ -44,6 +44,8 @@ gem 'bootstrap-daterangepicker-rails'
 
 gem 'gon'
 
+gem 'searchkick'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

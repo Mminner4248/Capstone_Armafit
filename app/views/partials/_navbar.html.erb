@@ -1,8 +1,8 @@
 <%= form_with model: @user, local: true do |form| %>
-<nav class="navbar navbar-expand-lg navbar-inverse bg-primary">
-  <a class="navbar-brand navButtonWidth" href="#"><%= link_to 'Armafit', root_path %></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-inverse bg-primary">
+  <a class="navbar-brand navButtonWidth" href="#"><%= link_to 'ARMAFIT', root_path %></a>
+  <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon custom-toggler"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
@@ -13,8 +13,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><%= link_to 'My Profile', edit_user_path(session[:user_id]) %> </a>
-            <a class="dropdown-item" href="#"><%= link_to 'WOD Tracker', root_path %></a>
-            <a class="dropdown-item" href="#"><%= link_to 'Exercise Info', root_path %></a>
+            <a class="dropdown-item" href="#"><%= link_to 'WOD Tracker', user_schedules_path %></a>
+            <a class="dropdown-item" href="#"><%= link_to 'Exercise Info', exercise_info_index_path %></a>
             <a class="dropdown-item" href="#"><%= link_to 'Sign Out', logout_path %></a>
           </div>
         </li>

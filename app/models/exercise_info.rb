@@ -1,0 +1,3 @@
+class ExerciseInfo < ApplicationRecord
+    
+end

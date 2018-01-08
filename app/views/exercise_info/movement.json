@@ -23,7 +23,7 @@
   },
   {
     "name": "Box Jump",
-    "description": "From standing on the floor jump and land with both feet on top of the box. Typical heights 12,18,24,30.",
+    "description": "From standing on the floor jump and land with both feet on top of the box. Typical heights are 12,18,24,30 inches.",
     "bodyWeight": true,
     "additionalWeight": false,
     "distance": false,

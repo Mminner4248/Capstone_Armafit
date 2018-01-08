@@ -18,14 +18,60 @@
  
  @import "bootstrap";
 
- .navbar a {
+.navbar a {
     color: white;
+    font-family: 'Allerta Stencil', sans-serif;
 }
 
- .navbar:hover {
-    box-shadow: 0 0 0; 
+ .navbar:hover a {
+    text-decoration: none;
+    background-color: transparent;
 }
 
 .dropdown-menu a {
     color : black;
-   }
+}
+
+.navbar-toggler button {
+    color:white;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: white;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+.card-header {
+    color: white;
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+.exercise-info-body {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("http://www.crossfitwhitehorse.net/wp-content/uploads/2015/12/background.jpg");
+    font-family: 'Oxygen', sans-serif;
+    background-size: cover;
+}
+
+.WOD-tracker-body {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Download-Free-Crossfit-Pictures-PIC-WPB004196.jpg");
+    font-family: 'Oxygen', sans-serif;
+    background-size: cover; 
+}
+
+.font-stencil {
+    color: white;
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+.card {
+    margin: 25px;
+}
