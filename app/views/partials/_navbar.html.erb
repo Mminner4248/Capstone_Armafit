@@ -13,7 +13,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><%= link_to 'My Profile', edit_user_path(session[:user_id]) %> </a>
-            <a class="dropdown-item" href="#"><%= link_to 'WOD Tracker', root_path %></a>
+            <a class="dropdown-item" href="#"><%= link_to 'WOD Tracker', user_schedules_path %></a>
             <a class="dropdown-item" href="#"><%= link_to 'Exercise Info', exercise_info_index_path %></a>
             <a class="dropdown-item" href="#"><%= link_to 'Sign Out', logout_path %></a>
           </div>

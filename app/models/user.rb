@@ -13,11 +13,11 @@ class User < ApplicationRecord
   has_one :photos, :as => :imageable
   accepts_nested_attributes_for :photos
 
-  def gym_name
-    gym.try(:gym_name)
-end
+    def gym_name
+        gym.try(:gym_name)
+    end
   
-def gym_name=(name)
-    self.gym = Gym.find_or_create_by(gym_name: name) if name.present?
-end
+    def gym_name=(name)
+        self.gym = Gym.find_or_create_by(gym_name: name) if name.present?
+    end
 end

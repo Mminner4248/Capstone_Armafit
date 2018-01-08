@@ -1,13 +1,24 @@
-<h1>Exercise_info<h1>
-<%= form_tag(exercise_info_index_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Exercises" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
+<body class="exercise-info-body">
+<h1 class="font-stencil">Exercise info:<h1>
+
+<div class="col-lg-6">
+    <div class="input-group-sm">
+        <%= form_tag(exercise_info_index_path, :method => "get") do %>
+            <%= text_field_tag :term %>
+            <%= submit_tag "Search", name: nil %>
+        <% end %>
+    </div>
+</div>
 
 <% @exercise_info.each do |a| %>
-<ul>
-    <% a.each do |k, v| %>
-    <li><%= k %> : <%= v %></li>
-    <% end %>
-</ul>
+<div class="card mx-auto text-center w-75">
+  <div class="card-header bg-primary">
+    <h1><%= a["name"] %><h1>
+  </div>
+  <div class="card-block">
+    <p><%= a["description"] %><p>
+  </div>
+</div>
 <% end %>
+
+</body>
