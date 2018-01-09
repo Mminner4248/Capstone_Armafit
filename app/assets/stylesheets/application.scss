@@ -44,10 +44,22 @@
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
 
+/******* Card styling for WOD Tracker and Exercise Info pages********/
 .card-header {
     color: white;
     font-family: 'Allerta Stencil', sans-serif;
 }
+
+.font-stencil {
+    color: white;
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+.card {
+    margin: 25px;
+}
+
+/***** Background image for exercise info page ******/
 
 .exercise-info-body {
     height: 100vh;
@@ -58,6 +70,8 @@
     background-size: cover;
 }
 
+/***** Background image for WOD tracker page ******/
+
 .WOD-tracker-body {
     height: 100vh;
     background-repeat: no-repeat;
@@ -65,13 +79,4 @@
     background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Download-Free-Crossfit-Pictures-PIC-WPB004196.jpg");
     font-family: 'Oxygen', sans-serif;
     background-size: cover; 
-}
-
-.font-stencil {
-    color: white;
-    font-family: 'Allerta Stencil', sans-serif;
-}
-
-.card {
-    margin: 25px;
 }

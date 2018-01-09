@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_one :photos, :as => :imageable
   accepts_nested_attributes_for :photos
 
+#Both methods used for autocomplete on the user create page. 
     def gym_name
         gym.try(:gym_name)
     end

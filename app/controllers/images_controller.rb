@@ -1,3 +1,4 @@
+#Images for profile established for v.2
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
