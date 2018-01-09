@@ -2,9 +2,8 @@ class UserSchedulesController < ApplicationController
   before_action :set_user_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /user_schedules
-  # GET /user_schedules.json
   def index
-
+    #allows user to search schedule based on search term. Otherwise it shows all user_schedules that have same user_id as user. 
     @user_schedules = 
     if params[:term]
       @user_schedules = UserSchedule.search(params[:term])
@@ -14,13 +13,8 @@ class UserSchedulesController < ApplicationController
     
   end
   
-
-  # GET /user_schedules/1
-  # GET /user_schedules/1.json
-  def show
-  end 
-
   # GET /user_schedules/new
+  #when user selects a created schedule, it populates the modal with data from schedule database. 
   def new
     @user_schedule = UserSchedule.new
     @schedule = Schedule.find(params[:schedule])
@@ -32,21 +26,18 @@ class UserSchedulesController < ApplicationController
   end
 
   # POST /user_schedules
-  # POST /user_schedules.json
   def create
     @user_schedule = UserSchedule.create(user_schedule_params)
     redirect_to root_url
   end
 
   # PATCH/PUT /user_schedules/1
-  # PATCH/PUT /user_schedules/1.json
   def update
     @user_schedule.update(user_schedule_params)
     redirect_to root_url
   end
 
   # DELETE /user_schedules/1
-  # DELETE /user_schedules/1.json
   def destroy
     @user_schedule.destroy
   end

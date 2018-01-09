@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-private 
 
+private 
+# current_user creates a global variable that can be used throughout project compare user_id
   def current_user
     @current_user = User.find(session[:user_id]) if session[:user_id]
   end

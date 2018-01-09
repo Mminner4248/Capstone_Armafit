@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /schedules
-  # GET /schedules.json
+  #shows schedules on FullCalendar that share the same gym_id as user. 
   def index
     @schedules = Schedule.where(gym_id: current_user.gym_id)
   end
@@ -12,6 +12,7 @@ class SchedulesController < ApplicationController
   end
 
   # GET /schedules/new
+  #start time takes in date from selected Calendar.
   def new
     @schedule = Schedule.new
     @start_time = DateTime.parse(params[:date])
@@ -31,14 +32,12 @@ class SchedulesController < ApplicationController
   end
 
   # PATCH/PUT /schedules/1
-  # PATCH/PUT /schedules/1.json
   def update
    @schedule.update(schedule_params)
    redirect_to root_url
   end
 
   # DELETE /schedules/1
-  # DELETE /schedules/1.json
   def destroy
     @schedule.destroy
     redirect_to root_url
